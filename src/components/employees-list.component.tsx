@@ -1,14 +1,6 @@
 import { Employee } from "@/model/employees.api";
-import {
-  Avatar,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
-  Skeleton
-} from "@mui/material";
-import Image from "next/image";
+import { List, ListItem, Skeleton } from "@mui/material";
+import { EmployeesListItemComponent } from "./employees-list-item-component";
 
 export const EmployeesListComponent: React.FC<{
   loading: boolean;
@@ -29,28 +21,17 @@ export const EmployeesListComponent: React.FC<{
               variant="circular"
               height={40}
               width={40}
-              sx={{ marginRight: 2 }} />
+              sx={{ marginRight: 2 }}
+            />
             <Skeleton variant="rectangular" width={180} height={45} />
           </ListItem>
         ))}
       {!loading &&
         employees.map((employee) => (
-          <ListItemButton
-            component="a"
-            href={`/employee/${employee.email}`}
-            key={employee.email}
-          >
-            <ListItemAvatar>
-              <Avatar>
-                <Image
-                  width={75}
-                  height={75}
-                  src={employee.imagePortraitUrl}
-                  alt={employee.name} />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={employee.name} secondary={employee.email} />
-          </ListItemButton>
+          <EmployeesListItemComponent
+            key={`employeeListItemComponent_email_${employee.email}`}
+            employee={employee}
+          />
         ))}
     </List>
   );
