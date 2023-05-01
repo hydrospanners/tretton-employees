@@ -1,4 +1,7 @@
 Don't include api-key
+
+Initiated with: `npx create-next-app@latest --typescript --no-tailwind --eslint --use-npm --src-dir`
+
 Short description of the product
 
 thoughts behind the design / architecture
