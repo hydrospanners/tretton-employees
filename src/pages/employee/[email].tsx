@@ -13,9 +13,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{ employee: Employee }> = async (
   context
 ) => {
-  const employee = await (
-    await fetchEmployees()
-  ).filter((e) => e.email === context.params?.email)[0];
+  const employee = (await fetchEmployees()).filter(
+    (e) => e.email === context.params?.email
+  )[0];
 
   return {
     props: {
@@ -28,8 +28,18 @@ export const getStaticProps: GetStaticProps<{ employee: Employee }> = async (
 const EmployeePage: NextPage<{ employee: Employee }> = ({ employee }) => {
   return (
     <Card>
-      <Typography variant="h5">{employee.name}</Typography>
-      <Image  width={200} height={200} src={employee.imagePortraitUrl} alt={employee.name} />
+      <Typography variant="h1">{employee.name}</Typography>
+      <Image
+        width={200}
+        height={200}
+        src={employee.imagePortraitUrl}
+        alt={employee.name}
+      />
+      <Typography variant="h2">Office: {employee.office}</Typography>
+      <Typography variant="h2">email: {employee.email}</Typography>
+      <Typography variant="h2">GitHub: {employee.gitHub}</Typography>
+      <Typography variant="h2">Twitter: {employee.twitter}</Typography>
+      <Typography variant="h2">LinkedIn: {employee.linkedIn}</Typography>
     </Card>
   );
 };
