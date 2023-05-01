@@ -1,10 +1,12 @@
-Don't include api-key
+# Don't include api-key
 
+# tretton37 Employees
 Initiated with: `npx create-next-app@latest --typescript --no-tailwind --eslint --use-npm --src-dir`
 
-Short description of the product
+List, sort and filter the employees of tretton37
 
-thoughts behind the design / architecture
+## Architecture and design choices
+Container, component - architecture. Keeps it simple to test components and allows for *single responsibility princible*.
 
 ## Motivation to packages and frameworks
 * NextJS - Framework that I know well and can set up quickly, but still have a good set of tools to expand the product if needed
